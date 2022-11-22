@@ -2,7 +2,6 @@
   margin: 2rem 0;
   width: 300px;
   height: 200px;
-  border: 1px solid #f1f1f1;
   perspective: 1000px;
 }
 .flip-card-inner {
