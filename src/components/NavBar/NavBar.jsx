@@ -1,13 +1,10 @@
-//Componentes/Estilos
-import "./NavBar.css";
-//Librerias
 import styled from "@emotion/styled";
-//Styled Components
+
 const Nav = styled.nav`
   position: absolute;
   background-color: #edb45e;
   width: 100%;
-  height: 36%;
+  height: 45%;
   display: flex;
   justify-content: center;
 `;
@@ -50,6 +47,9 @@ const NavBar = () => {
   return (
     <Nav>
       <Ul>
+        <Li>
+          <A href="#ingredientes">Ingredientes</A>
+        </Li>
         <Li>
           <A href="">Menú</A>
         </Li>

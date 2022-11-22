@@ -2,6 +2,8 @@ header {
   background-image: url("../../assets/header-background.jpeg");
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   height: 90vh;
   position: relative;
 }

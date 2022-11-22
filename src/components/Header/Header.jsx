@@ -1,12 +1,12 @@
-//Componentes/Estilos
+
 import NavBar from "../NavBar/NavBar";
 import "./Header.css";
-//Hooks
+
 import { useState } from "react";
-//Librerias
+
 import styled from "@emotion/styled";
 import { Twirl as Hamburger } from "hamburger-react";
-//Styled Components
+
 const OscurecerFondo = styled.div`
   position: absolute;
   width: 100%;
