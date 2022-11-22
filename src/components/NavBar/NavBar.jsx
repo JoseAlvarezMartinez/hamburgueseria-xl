@@ -17,9 +17,9 @@ const Ul = styled.ul`
   justify-content: center;
   align-items: center;
 `;
-const Li = styled.li``;
+
 const A = styled.a`
-  margin: 0.4rem 0;
+  margin: 0.6rem 0;
   font-size: 1.4rem;
   font-weight: 300;
   color: #000;
@@ -47,18 +47,18 @@ const NavBar = () => {
   return (
     <Nav>
       <Ul>
-        <Li>
+        <li>
           <A href="#ingredientes">Ingredientes</A>
-        </Li>
-        <Li>
+        </li>
+        <li>
           <A href="">Menú</A>
-        </Li>
-        <Li>
+        </li>
+        <li>
           <A href="">Carrito</A>
-        </Li>
-        <Li>
+        </li>
+        <li>
           <A href="">Contacto</A>
-        </Li>
+        </li>
       </Ul>
     </Nav>
   );
