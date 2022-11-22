@@ -1,0 +1,41 @@
+.posicion {
+  position: absolute;
+  left: 0;
+}
+.pan,
+.lechuga,
+.pepino,
+.cebolla,
+.panceta,
+.tomate,
+.queso,
+.carne {
+  transition: all 0.3s;
+}
+.cebolla {
+  top: 0.4rem;
+}
+.pepino,
+.lechuga {
+  top: -0.3rem;
+}
+.panceta,
+.queso,
+.tomate,
+.carne {
+  top: 0;
+}
+
+section {
+  height: 25rem;
+}
+.test {
+  position: absolute;
+  right: -2rem;
+  top: 10rem;
+}
+
+.animar {
+  transform: scale(1.1);
+}
+

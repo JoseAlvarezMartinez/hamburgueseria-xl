@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const Nav = styled.nav`
   position: absolute;
-  background-color: #edb45e;
+  background-color: #edb45ed3;
   width: 100%;
   height: 45%;
   display: flex;

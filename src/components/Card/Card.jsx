@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import Combo from "../../assets/combo1.png";
 import "./Card.css";
 
 const Boton = styled.button`
