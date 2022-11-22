@@ -1,0 +1,29 @@
+header {
+  background-image: url("../../assets/header-background.jpeg");
+  background-position: center;
+  background-size: cover;
+  height: 90vh;
+  position: relative;
+}
+.hamburger-react {
+  position: absolute !important;
+  z-index: 1;
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+@keyframes arrowanimation {
+  0% {
+    -webkit-transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    -webkit-transform: translateY(1em);
+    opacity: 1;
+  }
+}
+.tienda-online-arrow {
+  animation: arrowanimation 0.55s infinite alternate ease-in-out;
+}
+.blanco {
+  color: #fff;
+}
