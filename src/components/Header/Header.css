@@ -4,14 +4,8 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 95vh;
+  height: 100vh;
   position: relative;
-}
-.hamburger-react {
-  position: absolute !important;
-  z-index: 1;
-  margin-top: 1rem;
-  margin-left: 1rem;
 }
 @keyframes arrowanimation {
   0% {
@@ -25,7 +19,4 @@ header {
 }
 .tienda-online-arrow {
   animation: arrowanimation 0.55s infinite alternate ease-in-out;
-}
-.blanco {
-  color: #fff;
 }

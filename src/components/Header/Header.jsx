@@ -10,6 +10,7 @@ const OscurecerFondo = styled.div`
   background-color: #000000a6;
 `;
 const H1 = styled.h1`
+  margin-left: 3.4rem;
   margin-top: 3rem;
   font-size: 1.5rem;
   text-align: center;
@@ -48,17 +49,25 @@ const FlechaPosicion = styled.div`
   position: relative;
   bottom: -8rem;
 `;
+
+const PosicionarCarrito = styled.div`
+  position: absolute;
+  top: 1.2rem;
+  left: 2.3rem;
+`;
 /* Componente */
 const Header = () => {
   return (
     <header>
       <OscurecerFondo>
-        {/* <lord-icon
-          className="test"
-          src="https://cdn.lordicon.com/hyhnpiza.json"
-          trigger="hover"
-          style={{ width: "250px", height: "250px" }}
-        ></lord-icon> */}
+        <PosicionarCarrito>
+          <lord-icon
+            src="https://cdn.lordicon.com/hyhnpiza.json"
+            trigger="hover"
+            colors="primary:#fff"
+            style={{ width: "2.5rem", height: "5rem", cursor: "pointer" }}
+          ></lord-icon>
+        </PosicionarCarrito>
         <H1>Hamburgueseria XL</H1>
         <Contenedor>
           <H2>{"Bienvenido".toUpperCase()}</H2>

@@ -1,7 +1,9 @@
 /* Hooks/Librerias */
+import { useContext,useState } from "react";
+import { MiCarrito } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import styled from "@emotion/styled";
+import "react-toastify/dist/ReactToastify.css";
 import "./Card.css";
 
 /* Styled Components */
@@ -41,14 +43,21 @@ const Stock = styled.p`
 
 /* Componente */
 const Card = ({ hamburguesa }) => {
+  const [cantidad,setCantidad] = useState(1)
+  const { carrito, setCarrito } = useContext(MiCarrito);
   const { nombre, precio, id, imagen, stock } = hamburguesa;
-  const notify = () => toast("Se agrego correctamente al carrito 🛒");
-
+  function notify() {
+    toast("Se agrego correctamente al carrito 🛒");
+  }
   function formatearDinero(moneda) {
     return moneda.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     });
+  }
+  function handleClick() {
+    setCarrito([...carrito, hamburguesa]);
+    notify();
   }
   return (
     <Contenedor>
@@ -61,9 +70,9 @@ const Card = ({ hamburguesa }) => {
           <div className="flip-card-back">
             <h3>{nombre}</h3>
             <P>{formatearDinero(precio)}</P>
-            <BotonFuncional>-</BotonFuncional>
-            <Boton onClick={notify}>Añadir al Carrito</Boton>
-            <BotonFuncional>+</BotonFuncional>
+            <BotonFuncional onClick={() => setCantidad(cantidad - 1)} disabled={cantidad === 1}>-</BotonFuncional>
+            <Boton onClick={handleClick}>Añadir al Carrito {`(${cantidad})`}</Boton>
+            <BotonFuncional onClick={() => setCantidad(cantidad + 1)} disabled={cantidad === stock} >+</BotonFuncional>
             <Stock>Stock: {stock}</Stock>
           </div>
         </div>
