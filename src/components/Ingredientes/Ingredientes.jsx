@@ -1,3 +1,4 @@
+/* Hooks/Librerias */
 import "./Ingredientes.css";
 import {useState} from "react"
 import IngredientesImg from "../../assets/ingredientes.jpeg";
@@ -10,6 +11,8 @@ import Panceta from "../../assets/Panceta.png";
 import Queso from "../../assets/Queso.png";
 import Carne from "../../assets/Carne.png";
 import Tomate from "../../assets/Tomate.png";
+
+/* Styled Components */
 const H2 = styled.h2`
   text-align: center;
   font-weight: 400;
@@ -30,10 +33,13 @@ const P = styled.p`
   text-align: center;
   color: black;
   transition:all .3s;
+  user-select:none;
   &:hover{
     color: #edb45e;
   }
 `
+
+/* Componente */
 const Ingredientes = () => {
 const [pan,setPan] = useState(false)
 const [pepino,setPepino] = useState(false)

@@ -1,33 +1,26 @@
-
-import NavBar from "../NavBar/NavBar";
+/* Hooks/Librerias */
 import "./Header.css";
-
-import { useState } from "react";
-
 import styled from "@emotion/styled";
-import { Twirl as Hamburger } from "hamburger-react";
 
+/* Styled Components */
 const OscurecerFondo = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
   background-color: #000000a6;
 `;
-
 const H1 = styled.h1`
-  position: absolute;
-  z-index: 1;
-  right: 2rem;
-  top: 0.6rem;
+  margin-top: 3rem;
   font-size: 1.5rem;
   text-align: center;
+  color: #fff;
 `;
 const Contenedor = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 110%;
+  height: 84%;
 `;
 const H2 = styled.h2`
   margin: 0;
@@ -52,18 +45,21 @@ const Button = styled.button`
   }
 `;
 const FlechaPosicion = styled.div`
- position: relative;
- bottom:-8rem;
-`
+  position: relative;
+  bottom: -8rem;
+`;
+/* Componente */
 const Header = () => {
-  const [abierto, setAbierto] = useState(false);
   return (
     <header>
       <OscurecerFondo>
-        <Hamburger color={`${abierto ? "#000":"#fff"}`} toggled={abierto} toggle={setAbierto} />
-        <H1 className={`${abierto ? "" : "blanco"}`}>Hamburgueseria XL</H1>
-
-        {abierto ? <NavBar abierto={abierto}/> : null}
+        {/* <lord-icon
+          className="test"
+          src="https://cdn.lordicon.com/hyhnpiza.json"
+          trigger="hover"
+          style={{ width: "250px", height: "250px" }}
+        ></lord-icon> */}
+        <H1>Hamburgueseria XL</H1>
         <Contenedor>
           <H2>{"Bienvenido".toUpperCase()}</H2>
           <P>

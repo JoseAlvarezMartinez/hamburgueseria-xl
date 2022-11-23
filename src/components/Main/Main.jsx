@@ -1,7 +1,9 @@
+/* Hooks/Librerias */
 import styled from "@emotion/styled";
 import Card from "../Card/Card";
-import { useState, useEffect } from "react";
-import MenuData from "../../menu.json"
+import MenuData from "../../menu.json";
+
+/* Styled Components */
 const H2 = styled.h2`
   text-align: center;
   font-weight: 400;
@@ -11,9 +13,11 @@ const H2 = styled.h2`
 const MainContenedor = styled.main`
   margin: 0 1rem;
 `;
+
+/* Componente */
 const Main = () => {
   return (
-    <MainContenedor>
+    <MainContenedor id="menu">
       <H2>Hamburguesas</H2>
       {MenuData.map((hamburguesa) => (
         <Card key={hamburguesa.id} hamburguesa={hamburguesa} />
