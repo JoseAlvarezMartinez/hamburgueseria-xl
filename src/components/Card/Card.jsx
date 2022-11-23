@@ -1,6 +1,6 @@
 /* Hooks/Librerias */
-import { useContext,useState } from "react";
-import { MiCarrito } from "../../App";
+import { useContext, useState, useEffect } from "react";
+import { MiCarrito } from "../Pagina";
 import { ToastContainer, toast } from "react-toastify";
 import styled from "@emotion/styled";
 import "react-toastify/dist/ReactToastify.css";
@@ -25,27 +25,15 @@ const Contenedor = styled.div`
   display: flex;
   justify-content: center;
 `;
-const BotonFuncional = styled.button`
-  border: none;
-  background-color: #ffe5c6;
-  padding: 0.7rem 1rem;
-  border-radius: 0.4rem;
-  margin: 0 0.4rem;
-  cursor: pointer;
-  transition: all 0.5s;
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
 const Stock = styled.p`
   color: #000;
 `;
 
 /* Componente */
 const Card = ({ hamburguesa }) => {
-  const [cantidad,setCantidad] = useState(1)
   const { carrito, setCarrito } = useContext(MiCarrito);
   const { nombre, precio, id, imagen, stock } = hamburguesa;
+
   function notify() {
     toast("Se agrego correctamente al carrito 🛒");
   }
@@ -56,7 +44,16 @@ const Card = ({ hamburguesa }) => {
     });
   }
   function handleClick() {
-    setCarrito([...carrito, hamburguesa]);
+    const comprobar = carrito.some((producto) => producto.id === id);
+    if (comprobar) {
+      const productos = carrito.map((producto) => {
+        if (producto.id === id) {
+          producto.cantidad++;
+        }
+      });
+    } else {
+      setCarrito([...carrito, hamburguesa]);
+    }
     notify();
   }
   return (
@@ -70,9 +67,9 @@ const Card = ({ hamburguesa }) => {
           <div className="flip-card-back">
             <h3>{nombre}</h3>
             <P>{formatearDinero(precio)}</P>
-            <BotonFuncional onClick={() => setCantidad(cantidad - 1)} disabled={cantidad === 1}>-</BotonFuncional>
-            <Boton onClick={handleClick}>Añadir al Carrito {`(${cantidad})`}</Boton>
-            <BotonFuncional onClick={() => setCantidad(cantidad + 1)} disabled={cantidad === stock} >+</BotonFuncional>
+            <Boton onClick={handleClick}>
+              Añadir al Carrito
+            </Boton>
             <Stock>Stock: {stock}</Stock>
           </div>
         </div>

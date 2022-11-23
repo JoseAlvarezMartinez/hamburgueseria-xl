@@ -2,6 +2,7 @@
 import "./Header.css";
 import styled from "@emotion/styled";
 
+import Carrito from "../Carrito/Carrito";
 /* Styled Components */
 const OscurecerFondo = styled.div`
   position: absolute;
@@ -50,24 +51,11 @@ const FlechaPosicion = styled.div`
   bottom: -8rem;
 `;
 
-const PosicionarCarrito = styled.div`
-  position: absolute;
-  top: 1.2rem;
-  left: 2.3rem;
-`;
 /* Componente */
 const Header = () => {
   return (
     <header>
       <OscurecerFondo>
-        <PosicionarCarrito>
-          <lord-icon
-            src="https://cdn.lordicon.com/hyhnpiza.json"
-            trigger="hover"
-            colors="primary:#fff"
-            style={{ width: "2.5rem", height: "5rem", cursor: "pointer" }}
-          ></lord-icon>
-        </PosicionarCarrito>
         <H1>Hamburgueseria XL</H1>
         <Contenedor>
           <H2>{"Bienvenido".toUpperCase()}</H2>

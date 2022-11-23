@@ -22,12 +22,10 @@
 .lechuga {
   top: -0.3rem;
 }
-.panceta,
-.queso,
-.tomate,
-.carne {
-  top: 0;
+.tomate{
+  z-index: 1;
 }
+
 
 section {
   height: 25rem;
