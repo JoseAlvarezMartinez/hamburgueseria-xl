@@ -2,8 +2,8 @@
   position: absolute;
   left: 0;
 }
-.tomate{
-  
+.tomate,.panceta,.queso,.carne{
+  top: 0;
 }
 .pan,
 .lechuga,
@@ -34,9 +34,21 @@ section {
   position: absolute;
   right: -2rem;
   top: 10rem;
+  z-index: 1;
 }
 
 .animar {
   transform: scale(1.1);
 }
 
+.ingrediente-p{
+  cursor: pointer;
+  margin: 0.7rem 0;
+  text-align: center;
+  color: black;
+  transition:all .3s;
+  user-select:none;
+}
+.ingrediente-p:hover{
+  color: #edb45e;
+}

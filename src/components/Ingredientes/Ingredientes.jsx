@@ -27,17 +27,6 @@ const Contenedor = styled.div`
   top: -7rem;
   left: -5rem;
 `;
-const P = styled.p`
-  cursor: pointer;
-  margin: 0.7rem 0;
-  text-align: center;
-  color: black;
-  transition:all .3s;
-  user-select:none;
-  &:hover{
-    color: #edb45e;
-  }
-`
 
 /* Componente */
 const Ingredientes = () => {
@@ -64,14 +53,14 @@ const [lechuga,setLechuga] = useState(false)
         <Img src={Lechuga}  className={`lechuga posicion ${lechuga ? "animar" : ""}`} alt="" />
 
         <div className="test">
-          <P  onMouseEnter={() => setPan(true)} onMouseLeave={() => setPan(false)}>Pan de papa</P>
-          <P  onMouseEnter={() => setPepino(true)} onMouseLeave={() => setPepino(false)}>Pepino</P>
-          <P  onMouseEnter={() => setCebolla(true)} onMouseLeave={() => setCebolla(false)}>Cebolla</P>
-          <P  onMouseEnter={() => setPanceta(true)} onMouseLeave={() => setPanceta(false)}>Panceta</P>
-          <P  onMouseEnter={() => setQueso(true)} onMouseLeave={() => setQueso(false)}>Queso</P>
-          <P  onMouseEnter={() => setCarne(true)} onMouseLeave={() => setCarne(false)}>Carne</P>
-          <P  onMouseEnter={() => setTomate(true)} onMouseLeave={() => setTomate(false)}>Tomate</P>
-          <P  onMouseEnter={() => setLechuga(true)} onMouseLeave={() => setLechuga(false)}>Lechuga</P>
+          <p className="ingrediente-p"  onMouseEnter={() => setPan(true)} onMouseLeave={() => setPan(false)}>Pan de papa</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setPepino(true)} onMouseLeave={() => setPepino(false)}>Pepino</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setCebolla(true)} onMouseLeave={() => setCebolla(false)}>Cebolla</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setPanceta(true)} onMouseLeave={() => setPanceta(false)}>Panceta</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setQueso(true)} onMouseLeave={() => setQueso(false)}>Queso</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setCarne(true)} onMouseLeave={() => setCarne(false)}>Carne</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setTomate(true)} onMouseLeave={() => setTomate(false)}>Tomate</p>
+          <p className="ingrediente-p"  onMouseEnter={() => setLechuga(true)} onMouseLeave={() => setLechuga(false)}>Lechuga</p>
         </div>
       </Contenedor>
     </section>

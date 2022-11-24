@@ -5,7 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import styled from "@emotion/styled";
 import "react-toastify/dist/ReactToastify.css";
 import "./Card.css";
-
+import { formatearDinero } from "../../helpers/index";
 /* Styled Components */
 const Boton = styled.button`
   border: none;
@@ -25,9 +25,6 @@ const Contenedor = styled.div`
   display: flex;
   justify-content: center;
 `;
-const Stock = styled.p`
-  color: #000;
-`;
 
 /* Componente */
 const Card = ({ hamburguesa }) => {
@@ -37,12 +34,7 @@ const Card = ({ hamburguesa }) => {
   function notify() {
     toast("Se agrego correctamente al carrito 🛒");
   }
-  function formatearDinero(moneda) {
-    return moneda.toLocaleString("en-US", {
-      style: "currency",
-      currency: "USD",
-    });
-  }
+
   function handleClick() {
     const comprobar = carrito.some((producto) => producto.id === id);
     if (comprobar) {
@@ -58,7 +50,17 @@ const Card = ({ hamburguesa }) => {
   }
   return (
     <Contenedor>
-      <ToastContainer />
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
       <div className="flip-card">
         <div className="flip-card-inner">
           <div className="flip-card-front">
@@ -67,10 +69,7 @@ const Card = ({ hamburguesa }) => {
           <div className="flip-card-back">
             <h3>{nombre}</h3>
             <P>{formatearDinero(precio)}</P>
-            <Boton onClick={handleClick}>
-              Añadir al Carrito
-            </Boton>
-            <Stock>Stock: {stock}</Stock>
+            <Boton onClick={handleClick}>Añadir al Carrito</Boton>
           </div>
         </div>
       </div>

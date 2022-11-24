@@ -1,7 +1,11 @@
 import "./Carrito.css";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import Testing from "../Testing";
+import * as React from "react";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 const H2 = styled.h2`
   text-align: center;
   font-weight: 400;
@@ -12,14 +16,12 @@ const H2 = styled.h2`
 const Fondo = styled.div`
   background-color: #f0b968;
 `;
-const H3 = styled.h3`
-  font-weight: 300;
-  text-align: center;
-`;
-const P = styled.p`
-  text-align: center;
-`;
+
 const Carrito = ({ carrito }) => {
+  const [loading, setLoading] = useState(true);
+  setTimeout(() => {
+    setLoading(false);
+  }, 2000);
   return (
     <>
       <Fondo>
@@ -35,21 +37,13 @@ const Carrito = ({ carrito }) => {
         </Link>
         <H2>Carrito</H2>
       </Fondo>
-      {carrito.length ? (
-        <>
-          {carrito.map((compra) => (
-            <>
-            <h2>{compra.nombre}</h2>
-            <h2>{compra.precio}</h2>
-            <h2>{compra.cantidad}</h2>
-            </>
-          ))}
-        </>
+
+      {loading ? (
+        <Box sx={{ display: "flex", justifyContent:"center",alignItems:"center",height:"30rem"}}>
+          <CircularProgress />
+        </Box>
       ) : (
-        <>
-          <H3>Tu carrito está vacío</H3>
-          <P>Agrega productos y los verás reflejados aca.</P>
-        </>
+        <Testing carrito={carrito} />
       )}
     </>
   );
