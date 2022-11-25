@@ -1,11 +1,11 @@
 /* Hooks/Librerias */
-import { useContext, useState, useEffect } from "react";
-import { MiCarrito } from "../Pagina";
+import { useContext } from "react";
+import { MiCarrito } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
+import { formatearDinero } from "../../helpers/index";
 import styled from "@emotion/styled";
 import "react-toastify/dist/ReactToastify.css";
 import "./Card.css";
-import { formatearDinero } from "../../helpers/index";
 /* Styled Components */
 const Boton = styled.button`
   border: none;
@@ -29,11 +29,7 @@ const Contenedor = styled.div`
 /* Componente */
 const Card = ({ hamburguesa }) => {
   const { carrito, setCarrito } = useContext(MiCarrito);
-  const { nombre, precio, id, imagen, stock } = hamburguesa;
-
-  function notify() {
-    toast("Se agrego correctamente al carrito 🛒");
-  }
+  const { nombre, precio, id, imagen } = hamburguesa;
 
   function handleClick() {
     const comprobar = carrito.some((producto) => producto.id === id);
@@ -46,7 +42,7 @@ const Card = ({ hamburguesa }) => {
     } else {
       setCarrito([...carrito, hamburguesa]);
     }
-    notify();
+    toast("Se agrego correctamente al carrito 🛒");
   }
   return (
     <Contenedor>

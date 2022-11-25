@@ -2,7 +2,6 @@
 import "./Header.css";
 import styled from "@emotion/styled";
 
-import Carrito from "../Carrito/Carrito";
 /* Styled Components */
 const OscurecerFondo = styled.div`
   position: absolute;

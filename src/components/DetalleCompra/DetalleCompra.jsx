@@ -1,6 +1,8 @@
-import React from "react";
-import CardCompra from "./CardCompra/CardCompra";
+import { useContext } from "react";
+import { MiCarrito } from "../../App";
+import CardCompra from "../CardCompraDiseño/CardCompraDiseño";
 import styled from "@emotion/styled";
+
 const H3 = styled.h3`
   font-weight: 300;
   text-align: center;
@@ -25,7 +27,9 @@ const FinalizarCompra = styled.button`
     transform: scale(1.1);
   }
 `;
-const Testing = ({ carrito }) => {
+const DetalleCompra = () => {
+  const { carrito } = useContext(MiCarrito);
+
   return (
     <>
       {carrito.length ? (
@@ -47,4 +51,4 @@ const Testing = ({ carrito }) => {
   );
 };
 
-export default Testing;
+export default DetalleCompra;
