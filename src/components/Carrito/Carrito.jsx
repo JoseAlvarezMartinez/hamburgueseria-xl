@@ -18,6 +18,12 @@ const H2 = styled.h2`
 const Fondo = styled.div`
   background-color: #f0b968;
 `;
+const Rotar = styled.div`
+    transform: rotate(180deg);
+    position: absolute;
+    top: .1rem;
+    left: 2rem;
+`
 /* Componente */
 const Carrito = () => {
   const [loading, setLoading] = useState(true);
@@ -29,14 +35,14 @@ const Carrito = () => {
     <>
       <Fondo>
         <Link to={"/"}>
-          <div className="testasd">
+          <Rotar>
             <lord-icon
               src="https://cdn.lordicon.com/zmkotitn.json"
               trigger="hover"
               style={{ width: "2.5rem", height: "5rem" }}
               colors="primary:#000"
             ></lord-icon>
-          </div>
+          </Rotar>
         </Link>
         <H2>Carrito</H2>
       </Fondo>

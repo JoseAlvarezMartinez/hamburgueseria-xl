@@ -1,5 +1,6 @@
 /* Hooks/Librerias */
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { MiCarrito } from "../../App";
 import { ToastContainer, toast } from "react-toastify";
 import { formatearDinero } from "../../helpers/index";
@@ -18,6 +19,7 @@ const Boton = styled.button`
     transform: scale(1.1);
   }
 `;
+
 const P = styled.p`
   color: green;
 `;
@@ -30,18 +32,9 @@ const Contenedor = styled.div`
 const Card = ({ hamburguesa }) => {
   const { carrito, setCarrito } = useContext(MiCarrito);
   const { nombre, precio, id, imagen } = hamburguesa;
-
+  const comprobar = carrito.some((producto) => producto.id === id);
   function handleClick() {
-    const comprobar = carrito.some((producto) => producto.id === id);
-    if (comprobar) {
-      const productos = carrito.map((producto) => {
-        if (producto.id === id) {
-          producto.cantidad++;
-        }
-      });
-    } else {
-      setCarrito([...carrito, hamburguesa]);
-    }
+    setCarrito([...carrito, hamburguesa]);
     toast("Se agrego correctamente al carrito 🛒");
   }
   return (
@@ -65,7 +58,18 @@ const Card = ({ hamburguesa }) => {
           <div className="flip-card-back">
             <h3>{nombre}</h3>
             <P>{formatearDinero(precio)}</P>
-            <Boton onClick={handleClick}>Añadir al Carrito</Boton>
+
+            {comprobar ? (
+              <div className="mt">
+                <Link className="ir-al-carrito-btn" to="/carrito">
+                  Ir al Carrito
+                </Link>
+              </div>
+            ) : (
+              <Boton disabled={comprobar} onClick={handleClick}>
+                {"Agregar al Carrito"}
+              </Boton>
+            )}
           </div>
         </div>
       </div>

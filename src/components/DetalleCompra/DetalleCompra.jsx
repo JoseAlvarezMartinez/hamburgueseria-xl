@@ -29,7 +29,6 @@ const FinalizarCompra = styled.button`
 `;
 const DetalleCompra = () => {
   const { carrito } = useContext(MiCarrito);
-
   return (
     <>
       {carrito.length ? (
