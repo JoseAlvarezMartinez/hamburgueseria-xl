@@ -1,7 +1,7 @@
 import "./Carrito.css";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Testing from "../Testing";
 import * as React from "react";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -17,11 +17,12 @@ const Fondo = styled.div`
   background-color: #f0b968;
 `;
 
-const Carrito = ({ carrito }) => {
+const Carrito = ({ carrito, setCarrito }) => {
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
   }, 2000);
+
   return (
     <>
       <Fondo>
@@ -39,7 +40,14 @@ const Carrito = ({ carrito }) => {
       </Fondo>
 
       {loading ? (
-        <Box sx={{ display: "flex", justifyContent:"center",alignItems:"center",height:"30rem"}}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "30rem",
+          }}
+        >
           <CircularProgress />
         </Box>
       ) : (

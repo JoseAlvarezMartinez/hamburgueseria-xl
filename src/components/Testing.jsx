@@ -8,7 +8,24 @@ const H3 = styled.h3`
 const P = styled.p`
   text-align: center;
 `;
-const Testing = ({carrito}) => {
+const Separador = styled.div`
+  margin-top: 5rem;
+`;
+const FinalizarCompra = styled.button`
+  position: fixed;
+  bottom: 0;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: #f0ba68;
+  transition: all 0.4s;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+const Testing = ({ carrito }) => {
   return (
     <>
       {carrito.length ? (
@@ -16,6 +33,9 @@ const Testing = ({carrito}) => {
           {carrito.map((compra) => (
             <CardCompra key={compra.id} compra={compra} />
           ))}
+          <Separador>
+            <FinalizarCompra>Finalizar compra. Total $</FinalizarCompra>
+          </Separador>
         </>
       ) : (
         <>

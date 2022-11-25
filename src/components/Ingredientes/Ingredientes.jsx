@@ -1,7 +1,6 @@
 /* Hooks/Librerias */
 import "./Ingredientes.css";
-import {useState} from "react"
-import IngredientesImg from "../../assets/ingredientes.jpeg";
+import {useState} from "react";
 import styled from "@emotion/styled";
 import Pan from "../../assets/Pan-3.png";
 import Lechuga from "../../assets/Lechuga.png";
