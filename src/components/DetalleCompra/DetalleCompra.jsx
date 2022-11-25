@@ -1,6 +1,6 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { MiCarrito } from "../../App";
-import CardCompra from "../CardCompraDiseño/CardCompraDiseño";
+import CardCompraDiseño from "../CardCompraDiseño/CardCompraDiseño";
 import styled from "@emotion/styled";
 
 const H3 = styled.h3`
@@ -28,13 +28,17 @@ const FinalizarCompra = styled.button`
   }
 `;
 const DetalleCompra = () => {
-  const { carrito } = useContext(MiCarrito);
+  const { carrito, setCarrito } = useContext(MiCarrito);
+  useEffect(() => {
+    localStorage.setItem("carritoLS", JSON.stringify(carrito));
+  }, [carrito]);
+
   return (
     <>
       {carrito.length ? (
         <>
           {carrito.map((compra) => (
-            <CardCompra key={compra.id} compra={compra} />
+            <CardCompraDiseño key={compra.id} compra={compra} />
           ))}
           <Separador>
             <FinalizarCompra>Finalizar compra. Total $</FinalizarCompra>
