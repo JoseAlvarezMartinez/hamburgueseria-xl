@@ -1,7 +1,6 @@
 import { formatearDinero } from "../../helpers/index";
 import styled from "@emotion/styled";
-import {  useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 
 const Card = styled.div`
   margin: 2rem 0 0;
@@ -39,9 +38,9 @@ const Contenedor = styled.div`
   display: flex;
   align-items: center;
 `;
-const CardCompraDiseño = ({ compra,setTotal,total }) => {
+const CardCompraDiseño = ({ compra }) => {
   const [cantidadComprar, setCantidadComprar] = useState(1);
-  const { nombre, precio, imagen } = compra;
+  let { nombre, precio, imagen } = compra;
 
   return (
     <>
@@ -70,10 +69,6 @@ const CardCompraDiseño = ({ compra,setTotal,total }) => {
         <div>
           <H4>Cantidad</H4>
           <P>{cantidadComprar}</P>
-        </div>
-        <div>
-          <H4>Total</H4>
-          <P>{formatearDinero(cantidadComprar * precio)}</P>
         </div>
       </CardInferior>
     </>

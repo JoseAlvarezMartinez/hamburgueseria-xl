@@ -17,7 +17,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Pagina />} />
-          <Route path={"/carrito"} element={<Carrito />} />
+          <Route path={"/carrito"} element={<Carrito carrito={carrito}/>} />
         </Routes>
       </BrowserRouter>
     </MiCarrito.Provider>

@@ -1,12 +1,8 @@
 /*Librerias/Hooks Imports*/
-import { useState } from "react";
-
 import { Link } from "react-router-dom";
-import DetalleCompra from "../DetalleCompra/DetalleCompra";
+import CardCompraDiseño from "../CardCompraDiseño/CardCompraDiseño";
 import styled from "@emotion/styled";
 import "./Carrito.css";
-import CircularProgress from "@mui/material/CircularProgress";
-import Box from "@mui/material/Box";
 
 /*Styled Components*/
 const H2 = styled.h2`
@@ -25,12 +21,33 @@ const Rotar = styled.div`
   top: 0.1rem;
   left: 2rem;
 `;
+
+const H3 = styled.h3`
+  font-weight: 300;
+  text-align: center;
+`;
+const P = styled.p`
+  text-align: center;
+`;
+const Separador = styled.div`
+  margin-top: 5rem;
+`;
+const FinalizarCompra = styled.button`
+  position: fixed;
+  bottom: 0;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 0.2rem;
+  background-color: #f0ba68;
+  transition: all 0.4s;
+  width: 100%;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 /* Componente */
-const Carrito = () => {
-  const [loading, setLoading] = useState(true);
-  setTimeout(() => {
-    setLoading(false);
-  }, 2000);
+const Carrito = ({ carrito }) => {
   return (
     <>
       <Fondo>
@@ -47,19 +64,20 @@ const Carrito = () => {
         <H2>Carrito</H2>
       </Fondo>
 
-      {loading ? (
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "30rem",
-          }}
-        >
-          <CircularProgress />
-        </Box>
+      {carrito.length ? (
+        <>
+          {carrito.map((compra) => (
+            <CardCompraDiseño key={compra.id} compra={compra} />
+          ))}
+          <Separador>
+            <FinalizarCompra>Finalizar compra</FinalizarCompra>
+          </Separador>
+        </>
       ) : (
-        <DetalleCompra />
+        <>
+          <H3>Tu carrito está vacío</H3>
+          <P>Agrega productos y los verás reflejados aca.</P>
+        </>
       )}
     </>
   );
