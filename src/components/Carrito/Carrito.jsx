@@ -1,5 +1,6 @@
 /*Librerias/Hooks Imports*/
 import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import DetalleCompra from "../DetalleCompra/DetalleCompra";
 import styled from "@emotion/styled";
@@ -19,18 +20,17 @@ const Fondo = styled.div`
   background-color: #f0b968;
 `;
 const Rotar = styled.div`
-    transform: rotate(180deg);
-    position: absolute;
-    top: .1rem;
-    left: 2rem;
-`
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0.1rem;
+  left: 2rem;
+`;
 /* Componente */
 const Carrito = () => {
   const [loading, setLoading] = useState(true);
   setTimeout(() => {
     setLoading(false);
   }, 2000);
-
   return (
     <>
       <Fondo>

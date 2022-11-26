@@ -1,5 +1,7 @@
 import { formatearDinero } from "../../helpers/index";
 import styled from "@emotion/styled";
+import {  useEffect, useState } from "react";
+
 
 const Card = styled.div`
   margin: 2rem 0 0;
@@ -37,7 +39,8 @@ const Contenedor = styled.div`
   display: flex;
   align-items: center;
 `;
-const CardCompraDiseño = ({ compra }) => {
+const CardCompraDiseño = ({ compra,setTotal,total }) => {
+  const [cantidadComprar, setCantidadComprar] = useState(1);
   const { nombre, precio, imagen } = compra;
 
   return (
@@ -45,12 +48,20 @@ const CardCompraDiseño = ({ compra }) => {
       <Card>
         <img src={imagen} style={{ width: "10rem" }} alt="" />
         <Contenedor>
-          <BotonFuncional>-</BotonFuncional>
+          <BotonFuncional
+            disabled={cantidadComprar === 1}
+            onClick={() => setCantidadComprar(cantidadComprar - 1)}
+          >
+            -
+          </BotonFuncional>
           <h3>{nombre}</h3>
-          <BotonFuncional>+</BotonFuncional>
+          <BotonFuncional
+            onClick={() => setCantidadComprar(cantidadComprar + 1)}
+          >
+            +
+          </BotonFuncional>
         </Contenedor>
       </Card>
-
       <CardInferior>
         <div>
           <H4>Precio</H4>
@@ -58,11 +69,11 @@ const CardCompraDiseño = ({ compra }) => {
         </div>
         <div>
           <H4>Cantidad</H4>
-          <P>1</P>
+          <P>{cantidadComprar}</P>
         </div>
         <div>
           <H4>Total</H4>
-          <P>{formatearDinero(1 * precio)}</P>
+          <P>{formatearDinero(cantidadComprar * precio)}</P>
         </div>
       </CardInferior>
     </>
