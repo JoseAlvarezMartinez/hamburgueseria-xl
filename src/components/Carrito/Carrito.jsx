@@ -1,5 +1,7 @@
 /*Librerias/Hooks Imports*/
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { formatearDinero } from "../../helpers";
 import CardCompraDiseño from "../CardCompraDiseño/CardCompraDiseño";
 import styled from "@emotion/styled";
 import "./Carrito.css";
@@ -21,7 +23,6 @@ const Rotar = styled.div`
   top: 0.1rem;
   left: 2rem;
 `;
-
 const H3 = styled.h3`
   font-weight: 300;
   text-align: center;
@@ -46,8 +47,9 @@ const FinalizarCompra = styled.button`
     transform: scale(1.1);
   }
 `;
+
 /* Componente */
-const Carrito = ({ carrito }) => {
+const Carrito = ({ carrito,setCarrito }) => {
   return (
     <>
       <Fondo>
@@ -67,10 +69,13 @@ const Carrito = ({ carrito }) => {
       {carrito.length ? (
         <>
           {carrito.map((compra) => (
-            <CardCompraDiseño key={compra.id} compra={compra} />
+            <CardCompraDiseño carrito={carrito} setCarrito={setCarrito} key={compra.id} compra={compra} />
           ))}
           <Separador>
-            <FinalizarCompra>Finalizar compra</FinalizarCompra>
+            <FinalizarCompra>
+              Finalizar compra.
+              <div> Total: {""}</div>
+            </FinalizarCompra>
           </Separador>
         </>
       ) : (

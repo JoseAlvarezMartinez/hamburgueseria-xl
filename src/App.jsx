@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext,useEffect } from "react";
 import Pagina from "./components/Pagina";
 import Carrito from "./components/Carrito/Carrito";
 
@@ -9,15 +9,12 @@ function App() {
   useEffect(() => {
     setCarrito(JSON.parse(localStorage.getItem("carritoLS")) ?? [])
   },[])
-  useEffect(() => {
-    localStorage.setItem("carritoLS",JSON.stringify(carrito))
-  },[carrito])
   return (
     <MiCarrito.Provider value={{ carrito, setCarrito }}>
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Pagina />} />
-          <Route path={"/carrito"} element={<Carrito carrito={carrito}/>} />
+          <Route path={"/carrito"} element={<Carrito carrito={carrito} setCarrito={setCarrito}/>} />
         </Routes>
       </BrowserRouter>
     </MiCarrito.Provider>

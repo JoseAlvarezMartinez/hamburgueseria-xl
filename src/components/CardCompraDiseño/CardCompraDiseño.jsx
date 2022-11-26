@@ -38,10 +38,14 @@ const Contenedor = styled.div`
   display: flex;
   align-items: center;
 `;
-const CardCompraDiseño = ({ compra }) => {
+const CardCompraDiseño = ({ compra, carrito, setCarrito }) => {
   const [cantidadComprar, setCantidadComprar] = useState(1);
   let { nombre, precio, imagen } = compra;
 
+  useEffect(() => {
+    compra.cantidad = cantidadComprar;
+    localStorage.setItem("carritoLocal",JSON.stringify(carrito))
+  }, [cantidadComprar]);
   return (
     <>
       <Card>

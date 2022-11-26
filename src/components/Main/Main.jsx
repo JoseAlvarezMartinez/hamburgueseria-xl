@@ -1,7 +1,7 @@
 /* Hooks/Librerias */
 import styled from "@emotion/styled";
 import Card from "../Card/Card";
-import MenuData from "../../menu.json";
+import {productos} from "../../menu";
 
 /* Styled Components */
 const H2 = styled.h2`
@@ -19,7 +19,7 @@ const Main = () => {
   return (
     <MainContenedor id="menu">
       <H2>Hamburguesas</H2>
-      {MenuData.map((hamburguesa) => (
+      {productos.map((hamburguesa) => (
         <Card key={hamburguesa.id} hamburguesa={hamburguesa} />
       ))}
     </MainContenedor>
