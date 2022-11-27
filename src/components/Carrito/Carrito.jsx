@@ -49,7 +49,7 @@ const FinalizarCompra = styled.button`
 `;
 
 /* Componente */
-const Carrito = ({ carrito,setCarrito }) => {
+const Carrito = ({ carrito }) => {
   return (
     <>
       <Fondo>
@@ -69,7 +69,7 @@ const Carrito = ({ carrito,setCarrito }) => {
       {carrito.length ? (
         <>
           {carrito.map((compra) => (
-            <CardCompraDiseño carrito={carrito} setCarrito={setCarrito} key={compra.id} compra={compra} />
+            <CardCompraDiseño key={compra.id} compra={compra} />
           ))}
           <Separador>
             <FinalizarCompra>

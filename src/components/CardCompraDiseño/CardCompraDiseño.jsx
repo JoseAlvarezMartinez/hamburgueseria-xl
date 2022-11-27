@@ -1,6 +1,7 @@
 import { formatearDinero } from "../../helpers/index";
 import styled from "@emotion/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { MiCarrito } from "../../App";
 
 const Card = styled.div`
   margin: 2rem 0 0;
@@ -38,13 +39,14 @@ const Contenedor = styled.div`
   display: flex;
   align-items: center;
 `;
-const CardCompraDiseño = ({ compra, carrito, setCarrito }) => {
-  const [cantidadComprar, setCantidadComprar] = useState(1);
-  let { nombre, precio, imagen } = compra;
+const CardCompraDiseño = ({ compra }) => {
+  let { nombre, precio, imagen, cantidad } = compra;
+  const { carrito } = useContext(MiCarrito);
+  const [cantidadComprar, setCantidadComprar] = useState(cantidad);
 
   useEffect(() => {
-    compra.cantidad = cantidadComprar;
-    localStorage.setItem("carritoLocal",JSON.stringify(carrito))
+    compra.cantidad = cantidadComprar
+    localStorage.setItem("carritoLS", JSON.stringify(carrito));
   }, [cantidadComprar]);
   return (
     <>
