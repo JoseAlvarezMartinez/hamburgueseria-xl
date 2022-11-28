@@ -25,6 +25,8 @@ const Contenedor = styled.div`
   position: relative;
   top: -7rem;
   left: -5rem;
+  width:20rem;
+  margin:0 auto;
 `;
 
 /* Componente */
@@ -41,6 +43,7 @@ const [lechuga,setLechuga] = useState(false)
   return (
     <section id="ingredientes">
       <H2>Ingredientes Principales</H2>
+      
       <Contenedor>
         <Img src={Pan} className={`${pan ? "animar" : ""} pan`} alt="" />
         <Img src={Pepino} className={`pepino posicion ${pepino ? "animar" : ""}`} alt="" />
@@ -62,6 +65,7 @@ const [lechuga,setLechuga] = useState(false)
           <p className="ingrediente-p"  onMouseEnter={() => setLechuga(true)} onMouseLeave={() => setLechuga(false)}>Lechuga</p>
         </div>
       </Contenedor>
+      
     </section>
   );
 };

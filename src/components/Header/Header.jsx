@@ -33,8 +33,9 @@ const P = styled.p`
   color: #fff;
   text-align: center;
 `;
-const Button = styled.button`
-  border: none;
+const Button = styled.a`
+  text-decoration: none;
+  color: #000;
   background-color: #edb45e;
   padding: 0.8rem 2rem;
   border-radius: 0.4rem;
@@ -61,7 +62,7 @@ const Header = () => {
           <P>
             Estás a punto de probar una de las mejores hamburguesas del país.
           </P>
-          <Button>Comprar</Button>
+          <Button href="#menu">Comprar</Button>
 
           <FlechaPosicion>
             <svg
