@@ -12,6 +12,7 @@ function App() {
   useEffect(() => {
     localStorage.setItem("carritoLS", JSON.stringify(carrito));
   }, [carrito]);
+
   return (
     <MiCarrito.Provider value={{ carrito, setCarrito }}>
       <BrowserRouter>

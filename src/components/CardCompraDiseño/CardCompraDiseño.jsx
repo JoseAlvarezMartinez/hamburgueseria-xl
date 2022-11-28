@@ -2,7 +2,7 @@ import { formatearDinero } from "../../helpers/index";
 import styled from "@emotion/styled";
 import { useEffect, useState, useContext } from "react";
 import { MiCarrito } from "../../App";
-
+import "./CardCompraDiseño.css";
 const Card = styled.div`
   margin: 2rem 0 0;
   display: flex;
@@ -35,22 +35,42 @@ const BotonFuncional = styled.button`
     transform: scale(1.1);
   }
 `;
+const BotonEliminar = styled.button`
+  border: none;
+  color: #fff;
+  background-color: red;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  position: relative;
+  left: 8rem;
+  cursor: pointer;
+`;
 const Contenedor = styled.div`
   display: flex;
   align-items: center;
 `;
-const CardCompraDiseño = ({ compra }) => {
-  let { nombre, precio, imagen, cantidad } = compra;
-  const { carrito } = useContext(MiCarrito);
+const CardCompraDiseño = ({ compra, setCantidades}) => {
+  let { nombre, precio, imagen, cantidad, id } = compra;
+  const { carrito, setCarrito } = useContext(MiCarrito);
   const [cantidadComprar, setCantidadComprar] = useState(cantidad);
 
   useEffect(() => {
-    compra.cantidad = cantidadComprar
+    compra.cantidad = cantidadComprar;
+    setCantidades(cantidadComprar)
     localStorage.setItem("carritoLS", JSON.stringify(carrito));
   }, [cantidadComprar]);
+
+  function handleEliminar(id) {
+    const eliminar = carrito.filter((compra) => compra.id !== id);
+    setCarrito(eliminar);
+  }
   return (
     <>
       <Card>
+        <BotonEliminar onClick={() => handleEliminar(id)} className="eliminar">
+          X
+        </BotonEliminar>
         <img src={imagen} style={{ width: "10rem" }} alt="" />
         <Contenedor>
           <BotonFuncional

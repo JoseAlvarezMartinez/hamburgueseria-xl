@@ -50,6 +50,13 @@ const FinalizarCompra = styled.button`
 
 /* Componente */
 const Carrito = ({ carrito }) => {
+  const [total, setTotal] = useState(0);
+  const [cantidades, setCantidades] = useState(0);
+  const iterar = carrito.map((compra) => compra.cantidad * compra.precio);
+  const reduce = iterar.reduce((compra, total) => compra + total, 0);
+  useEffect(() => {
+    setTotal(reduce)
+  }, [reduce]);
   return (
     <>
       <Fondo>
@@ -69,12 +76,18 @@ const Carrito = ({ carrito }) => {
       {carrito.length ? (
         <>
           {carrito.map((compra) => (
-            <CardCompraDiseño key={compra.id} compra={compra} />
+            <CardCompraDiseño
+              key={compra.id}
+              compra={compra}
+              setTotal={setTotal}
+              setCantidades={setCantidades}
+              total={total}
+            />
           ))}
           <Separador>
             <FinalizarCompra>
               Finalizar compra.
-              <div> Total: {""}</div>
+              <div> Total: {formatearDinero(total)}</div>
             </FinalizarCompra>
           </Separador>
         </>
